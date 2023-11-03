@@ -4,6 +4,56 @@ import string
 NEXT_ACTION = 'next_action'
 GAME_OVER = 'game_over'
 GAME_WON = 'game_won'
+HANGMANPICS = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''','''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', ]
 
 def get_random_word(wordlist="/usr/share/dict/words"):
     good_words = []
@@ -65,6 +115,7 @@ def main():
     secret_word = get_random_word()
     chances = 6
     while True:
+        print(HANGMANPICS[chances])
         print(get_status(guesses,secret_word,chances),secret_word)
         if action == GAME_OVER:
             print("Too bad... you lost. The word is", secret_word)
