@@ -41,6 +41,7 @@ def get_status(guesses,secret_word,chances):
 
 def play_around(guess,guesses,secret_word,chances):
     if guess in guesses:
+        print('You have already guessed that.')
         return guesses, chances, NEXT_ACTION
     guesses.append(guess)
     if guess not in secret_word:
@@ -56,14 +57,34 @@ def play_around(guess,guesses,secret_word,chances):
 def get_user_input(user_input):
     if len(user_input) == 1 and user_input in string.ascii_letters:
         return user_input.lower()
+    return False
 
 def main():
+    action = NEXT_ACTION
     guesses = []
-    guess = input("Enter a alphabet : ")
     secret_word = get_random_word()
     chances = 6
-    play_around(guess,guesses,secret_word,chances)
-    print(get_status(guesses,secret_word,chances))
+    while True:
+        print(get_status(guesses,secret_word,chances),secret_word)
+        if action == GAME_OVER:
+            print("Too bad... you lost. The word is", secret_word)
+            break
+        if action == GAME_WON:
+            print("Hurray, you won. The word is", secret_word)
+            break
+        if action == NEXT_ACTION:
+            while True:
+                user_input = input("Enter an alphabet : ")
+                guess = get_user_input(user_input)
+                if guess:
+                    break
+               
+            guesses, chances, action = play_around(guess,guesses,secret_word,chances)
+            
+    play_again = input("Do you wish to play again? [Y/N]")
+    if play_again == 'y' or play_again == 'Y':
+        main()
+        
 
 if __name__ == '__main__':
     main()
