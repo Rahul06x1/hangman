@@ -37,6 +37,7 @@ def get_status(guesses,secret_word,chances):
     return status
 
 def play_around(guess,guesses,secret_word,chances):
-    if guess in secret_word:
-        guesses.append(guess)
-        return guesses, chances, NEXT_ACTION
+    guesses.append(guess)
+    if guess not in secret_word:
+        chances -= 1
+    return guesses, chances, NEXT_ACTION
