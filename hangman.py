@@ -17,5 +17,11 @@ def get_random_word(wordlist="/usr/share/dict/words"):
         return secret_word
 
 def mask_secret_word(guesses,secret_word):
-    masked_word = len(secret_word)*'-'
+    masked_word = []
+    for sw in secret_word:
+        if sw in guesses:
+            masked_word.append(sw)
+        else:
+            masked_word.append('-')
+    masked_word = "".join(masked_word)
     return masked_word
