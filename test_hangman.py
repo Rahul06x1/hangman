@@ -37,8 +37,14 @@ def test_mask_secret_word_no_guesses():
     masked_word = mask_secret_word(guesses,secret_word) 
     assert masked_word == '-----'
 
-def test_mask_secret_word_single_guess():
+def test_mask_secret_word_single_correct_guess():
     guesses = ['i']
     secret_word = 'tiger'
     masked_word = mask_secret_word(guesses,secret_word) 
     assert masked_word == '-i---'
+
+def test_mask_secret_word_single_wrong_guess():
+    guesses = ['x']
+    secret_word = 'tiger'
+    masked_word = mask_secret_word(guesses,secret_word) 
+    assert masked_word == '-----'
