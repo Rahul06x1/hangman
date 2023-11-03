@@ -60,3 +60,13 @@ def test_mask_secret_word_one_correct_guess_multiple_occurance():
     secret_word = 'apple'
     masked_word = mask_secret_word(guesses,secret_word) 
     assert masked_word == '-pp--'
+
+def test_get_status():
+    guesses = ['x', 'p']
+    secret_word = 'apple'
+    chances = 8
+    status = get_status(guesses,secret_word,chances)
+    assert status == """SECRET WORD : -pp--
+    Turns remaining : 7
+    Guesses so far : xp
+    """
