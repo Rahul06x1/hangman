@@ -1,6 +1,7 @@
 import random
 
 NEXT_ACTION = 'next_action'
+GAME_OVER = 'game_over'
 
 def get_random_word(wordlist="/usr/share/dict/words"):
     good_words = []
@@ -40,4 +41,6 @@ def play_around(guess,guesses,secret_word,chances):
     guesses.append(guess)
     if guess not in secret_word:
         chances -= 1
+        if chances == 0:
+            return guesses, chances, GAME_OVER
     return guesses, chances, NEXT_ACTION
