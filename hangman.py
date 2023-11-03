@@ -1,5 +1,7 @@
 import random
 
+NEXT_ACTION = 'next_action'
+
 def get_random_word(wordlist="/usr/share/dict/words"):
     good_words = []
     with open(wordlist) as f:
@@ -33,3 +35,8 @@ def get_status(guesses,secret_word,chances):
     Guesses so far : {"".join(guesses)}
     """
     return status
+
+def play_around(guess,guesses,secret_word,chances):
+    if guess in secret_word:
+        guesses.append(guess)
+        return guesses, chances, NEXT_ACTION

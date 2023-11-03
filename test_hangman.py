@@ -75,7 +75,7 @@ def test_play_around_correct_guess():
     guess = 'a'
     secret_word = 'apple'
     chances = 7
-    guess,chances,next_action = play_around(guess,guesses,secret_word,chances)
+    guesses,chances,next_action = play_around(guess,guesses,secret_word,chances)
 
     assert chances == 7
     assert guesses == ['a']
