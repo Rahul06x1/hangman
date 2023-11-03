@@ -2,6 +2,7 @@ import random
 
 NEXT_ACTION = 'next_action'
 GAME_OVER = 'game_over'
+GAME_WON = 'game_won'
 
 def get_random_word(wordlist="/usr/share/dict/words"):
     good_words = []
@@ -43,4 +44,7 @@ def play_around(guess,guesses,secret_word,chances):
         chances -= 1
         if chances == 0:
             return guesses, chances, GAME_OVER
+    masked_word = mask_secret_word(guesses,secret_word)
+    if masked_word == secret_word:
+        return guesses, chances, GAME_WON
     return guesses, chances, NEXT_ACTION
