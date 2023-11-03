@@ -120,3 +120,8 @@ def test_play_around_repeated_guess():
     assert chances == 7
     assert guesses == ['a','l','e']
     assert next_action == NEXT_ACTION
+
+def test_get_user_input_single_charactor():
+    user_input = 'a'
+    user_input = get_user_input(user_input)
+    assert len(user_input) == 1
