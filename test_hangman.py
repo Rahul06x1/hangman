@@ -91,3 +91,12 @@ def test_play_around_wrong_guess_game_not_over():
     assert chances == 6
     assert guesses == ['a','x']
     assert next_action == NEXT_ACTION
+
+def test_play_around_wrong_guess_game_over():
+    guesses = ['a']
+    guess = 'x'
+    secret_word = 'apple'
+    chances = 1
+    guesses,chances,next_action = play_around(guess,guesses,secret_word,chances)
+
+    assert next_action == GAME_OVER
