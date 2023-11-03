@@ -31,8 +31,8 @@ def test_random_word_min_length_5():
         
     os.unlink(fname)
 
-def test_mask_word_no_guesses():
+def test_mask_secret_word_no_guesses():
     guesses = []
     secret_word = 'tiger'
-    masked_word = mask_word(guesses,secret_word) 
+    masked_word = mask_secret_word(guesses,secret_word) 
     assert masked_word == '-----'
