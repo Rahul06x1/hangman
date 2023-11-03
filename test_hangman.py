@@ -100,3 +100,12 @@ def test_play_around_wrong_guess_game_over():
     guesses,chances,next_action = play_around(guess,guesses,secret_word,chances)
 
     assert next_action == GAME_OVER
+
+def test_play_around_win():
+    guesses = ['a','l','e']
+    guess = 'p'
+    secret_word = 'apple'
+    chances = 1
+    guesses,chances,next_action = play_around(guess,guesses,secret_word,chances)
+
+    assert next_action == GAME_WON
