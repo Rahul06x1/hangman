@@ -18,3 +18,13 @@ def test_random_word_no_punctuation():
 
     for _ in range(100):
         assert get_random_word(fname) == "pineapple"
+
+def test_random_word_min_length_5():
+    fname = "/tmp/sample_wordlist"
+    with open(fname, "w") as f:
+        f.writelines(["pineapple\n", "ape\n", 'dog\n', 'bear\n'])
+
+    for _ in range(100):
+        assert get_random_word(fname) == "pineapple"
+        
+    os.unlink(fname)
