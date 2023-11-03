@@ -1,4 +1,5 @@
 import random
+import string
 
 NEXT_ACTION = 'next_action'
 GAME_OVER = 'game_over'
@@ -52,5 +53,5 @@ def play_around(guess,guesses,secret_word,chances):
     return guesses, chances, NEXT_ACTION
 
 def get_user_input(user_input):
-    if len(user_input) == 1:
-        return user_input
+    if len(user_input) == 1 and user_input in string.ascii_letters:
+        return user_input.lower()
