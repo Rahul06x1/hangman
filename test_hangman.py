@@ -11,3 +11,10 @@ def test_random_word_lowercase():
 
     os.unlink(fname)
 
+def test_random_word_no_punctuation():
+    fname = "/tmp/sample_wordlist"
+    with open(fname, "w") as f:
+        f.writelines(["pineapple\n", "mango's\n", '"beryl"'])
+
+    for _ in range(100):
+        assert get_random_word(fname) == "pineapple"
