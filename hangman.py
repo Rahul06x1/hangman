@@ -50,3 +50,7 @@ def play_around(guess,guesses,secret_word,chances):
     if masked_word == secret_word:
         return guesses, chances, GAME_WON
     return guesses, chances, NEXT_ACTION
+
+def get_user_input(user_input):
+    if len(user_input) == 1:
+        return user_input
