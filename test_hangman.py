@@ -54,3 +54,9 @@ def test_mask_secret_word_two_correct_guesses():
     secret_word = 'tiger'
     masked_word = mask_secret_word(guesses,secret_word) 
     assert masked_word == '-ig--'
+
+def test_mask_secret_word_one_correct_guess_multiple_occurance():
+    guesses = ['x','p']
+    secret_word = 'apple'
+    masked_word = mask_secret_word(guesses,secret_word) 
+    assert masked_word == '-pp--'
