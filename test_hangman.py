@@ -109,3 +109,14 @@ def test_play_around_win():
     guesses,chances,next_action = play_around(guess,guesses,secret_word,chances)
 
     assert next_action == GAME_WON
+
+def test_play_around_repeated_guess():
+    guesses = ['a','l','e']
+    guess = 'l'
+    secret_word = 'apple'
+    chances = 7
+    guesses,chances,next_action = play_around(guess,guesses,secret_word,chances)
+
+    assert chances == 7
+    assert guesses == ['a','l','e']
+    assert next_action == NEXT_ACTION
