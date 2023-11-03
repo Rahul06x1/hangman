@@ -125,3 +125,8 @@ def test_get_user_input_single_charactor():
     user_input = 'a'
     user_input = get_user_input(user_input)
     assert len(user_input) == 1
+
+def test_get_user_input_alphabet():
+    user_input = 'a'
+    user_input = get_user_input(user_input)
+    assert user_input == 'a'
