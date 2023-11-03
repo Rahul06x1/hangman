@@ -5,6 +5,8 @@ def get_random_word(wordlist="/usr/share/dict/words"):
     with open(wordlist) as f:
         words = [x.strip() for x in f]
         for word in words:
+            if not word.isalpha(): # if there is punctuation
+                continue
             if not word.islower(): # if it is a proper noun
                 continue
             good_words.append(word)
