@@ -47,6 +47,7 @@ def play_around(guess,guesses,secret_word,chances):
         chances -= 1
         if chances == 0:
             return guesses, chances, GAME_OVER
+        return guesses, chances, NEXT_ACTION
     masked_word = mask_secret_word(guesses,secret_word)
     if masked_word == secret_word:
         return guesses, chances, GAME_WON
@@ -55,3 +56,14 @@ def play_around(guess,guesses,secret_word,chances):
 def get_user_input(user_input):
     if len(user_input) == 1 and user_input in string.ascii_letters:
         return user_input.lower()
+
+def main():
+    guesses = []
+    guess = input("Enter a alphabet : ")
+    secret_word = get_random_word()
+    chances = 6
+    play_around(guess,guesses,secret_word,chances)
+    print(get_status(guesses,secret_word,chances))
+
+if __name__ == '__main__':
+    main()
