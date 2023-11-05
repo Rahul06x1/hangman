@@ -116,7 +116,7 @@ def main():
     chances = 6
     while True:
         print(HANGMANPICS[chances])
-        print(get_status(guesses,secret_word,chances),secret_word)
+        print(get_status(guesses,secret_word,chances))
         if action == GAME_OVER:
             print("Too bad... you lost. The word is", secret_word)
             break

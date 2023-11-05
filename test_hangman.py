@@ -130,3 +130,8 @@ def test_get_user_input_alphabet():
     user_input = 'a'
     user_input = get_user_input(user_input)
     assert user_input == 'a'
+
+def test_get_user_input_invalid():
+    user_input = '*'
+    user_input = get_user_input(user_input)
+    assert user_input == False
